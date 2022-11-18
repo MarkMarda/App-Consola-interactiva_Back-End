@@ -4,28 +4,34 @@ require("colors");
 
 const showMenu = () => {
 
-  console.log("==========================".cyan);
-  console.log("      Select a option     ".cyan);
-  console.log("==========================\n".cyan);
+  return new Promise(resolve => {
 
-  console.log(`${"1.".cyan} Create Task`);
-  console.log(`${"2.".cyan} All Tasks`);
-  console.log(`${"3.".cyan} Completed Tasks`);
-  console.log(`${"4.".cyan} Not Completed Tasks`);
-  console.log(`${"5.".cyan} Do Task(s)`);
-  console.log(`${"6.".cyan} Delete Tasks`);
-  console.log(`${"0.".cyan} Escape\n`);
+    console.clear();
+    console.log("==========================".cyan);
+    console.log("      Select a option     ".cyan);
+    console.log("==========================\n".cyan);
 
-  const readline = require("readline").createInterface({
+    console.log(`${"1.".cyan} Create Task`);
+    console.log(`${"2.".cyan} All Tasks`);
+    console.log(`${"3.".cyan} Completed Tasks`);
+    console.log(`${"4.".cyan} Not Completed Tasks`);
+    console.log(`${"5.".cyan} Do Task(s)`);
+    console.log(`${"6.".cyan} Delete Tasks`);
+    console.log(`${"0.".cyan} Exit\n`);
 
-    input: process.stdin,
-    output: process.stdout
+    const readline = require("readline").createInterface({
 
-  });
+      input: process.stdin,
+      output: process.stdout
 
-  readline.question("Select a option:", (opt) => {
+    });
 
-    readline.close();
+    readline.question("Select a option: ", (option) => {
+
+      readline.close();
+      resolve(option);
+
+    });
 
   });
 
@@ -33,17 +39,22 @@ const showMenu = () => {
 
 const pause = () => {
 
-  const readline = require("readline").createInterface({
+  return new Promise(resolve => {
 
-    input: process.stdin,
-    output: process.stdout
+    const readline = require("readline").createInterface({
 
-  });
-
-  readline.question(`\nPress ${"ENTER".cyan} to continue\n`, () => {
-
-    readline.close();
-
+      input: process.stdin,
+      output: process.stdout
+  
+    });
+  
+    readline.question(`\nPress ${"ENTER".cyan} to continue\n`, (option) => {
+  
+      readline.close();
+      resolve();
+  
+    });
+  
   });
 
 };

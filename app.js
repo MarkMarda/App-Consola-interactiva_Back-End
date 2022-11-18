@@ -9,9 +9,18 @@ const main = async() => {
 
   console.log("Hellow World");
 
-  showMenu();
+  let option = "";
 
-  //pause();
+  do {
+
+    option = await showMenu();
+    console.log({option});
+
+    if(option !== "0") await pause();
+
+  } while(option !== "0")
+
+  //pause(); 
 
 };
 
