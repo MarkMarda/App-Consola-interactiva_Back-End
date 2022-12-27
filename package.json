@@ -1,5 +1,6 @@
 {
   "name": "app-consola-interactiva",
+  "type": "module",
   "version": "1.0.0",
   "description": "This App is to create a ToDo and other options.",
   "main": "app.js",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/MarkMarda/App-Consola-interactiva_Back-End#readme",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "inquirer": "^9.1.4"
   }
 }
